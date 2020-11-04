@@ -63,7 +63,7 @@ SOCKET create_socket(const char* host, const char *port) {
 
 
 
-#define MAX_REQUEST_SIZE 7000000
+#define MAX_REQUEST_SIZE 7050000
 
 struct client_info {
     socklen_t address_length;
@@ -370,7 +370,7 @@ int main() {
                 } else {
                     client->received += r;
                     client->request[client->received] = 0;
-                    fwrite(client->request,1,sizeof(client->request),stdout);
+                    //fwrite(client->request,1,sizeof(client->request),stdout);
                     char *q = strstr(client->request, "\r\n\r\n");
                     if (q) 
                     {
