@@ -289,14 +289,14 @@ void content_process(struct client_info *client){
     	long int i = 0;
     	while(i<MAX_REQUEST_SIZE)
     	{
-    		if(!strncmp(&start[i],edge,strlen(edge)))
+    		if(strncmp(&start[i],"-----",5)==0)
     		{
     			break;
     		}
     		content[i] = start[i];
     		i++;
     	}
-    	fwrite(content,1,i,fp);
+    	fwrite(content,1,sizeof(content),fp);
     	fclose(fp);
     }
     else
